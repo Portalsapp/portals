@@ -10,6 +10,11 @@
             "StackName": "amplify-circlesx-dev-221820",
             "StackId": "arn:aws:cloudformation:us-west-2:404607806594:stack/amplify-circlesx-dev-221820/d5dbc910-b447-11ea-b762-0613825de49c",
             "AmplifyAppId": "d3qbkj21ja9s2z"
+        },
+        "categories": {
+            "auth": {
+                "circlesx24846b49": {}
+            }
         }
     }
 }
