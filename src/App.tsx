@@ -1,31 +1,39 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Provider as ReduxProvider } from 'react-redux';
-import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import ProfileScreen from './pages/profile/ProfileScreen';
+import MainScreen from './pages/main/MainScreen';
+import DocsScreen from './pages/docs/DocsScreen';
+import DatabaseScreen from './pages/database/DatabaseScreen';
+import Header from './components/navbar/Header';
+import { withAuthenticator } from '@aws-amplify/ui-react';
 import configureStore from './modules/store/configureStore';
 const reduxStore = configureStore();
 
 function App() {
   return (
     <ReduxProvider store={reduxStore}>
-      <div className="App">
-        <AmplifySignOut />
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            circles<span style={{ "color": "lightblue" }} >xd</span>
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>  
+      <Router>
+        <div>
+          <Header />
+          <Switch>
+            <Route path='/profile'>
+              <ProfileScreen />
+            </Route>
+            <Route path='/docs'>
+              <DocsScreen />
+            </Route>
+            <Route path='/database'>
+              <DatabaseScreen />
+            </Route>
+            <Route path='/'>
+              <MainScreen />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
     </ReduxProvider>
   );
 }

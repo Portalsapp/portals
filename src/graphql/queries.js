@@ -1,38 +1,41 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const getBlog = /* GraphQL */ `
-  query GetBlog($id: ID!) {
-    getBlog(id: $id) {
+export const getUser = /* GraphQL */ `
+  query GetUser($id: ID!) {
+    getUser(id: $id) {
       id
       name
-      posts {
-        items {
-          id
-          title
-          blogID
-          createdAt
-          updatedAt
-        }
-        nextToken
+      email
+      organization
+      items {
+        id
+        name
+        description
+        img
       }
       createdAt
       updatedAt
     }
   }
 `;
-export const listBlogs = /* GraphQL */ `
-  query ListBlogs(
-    $filter: ModelBlogFilterInput
+export const listUsers = /* GraphQL */ `
+  query ListUsers(
+    $filter: ModelUserFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listBlogs(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
         name
-        posts {
-          nextToken
+        email
+        organization
+        items {
+          id
+          name
+          description
+          img
         }
         createdAt
         updatedAt
@@ -41,108 +44,82 @@ export const listBlogs = /* GraphQL */ `
     }
   }
 `;
-export const getPost = /* GraphQL */ `
-  query GetPost($id: ID!) {
-    getPost(id: $id) {
+export const getPortal = /* GraphQL */ `
+  query GetPortal($id: ID!) {
+    getPortal(id: $id) {
       id
-      title
-      blogID
-      blog {
+      name
+      items {
         id
         name
-        posts {
-          nextToken
-        }
-        createdAt
-        updatedAt
+        description
+        img
       }
-      comments {
+      connectedUsers {
+        id
+        name
+        email
+        organization
         items {
           id
-          postID
-          content
-          createdAt
-          updatedAt
+          name
+          description
+          img
         }
-        nextToken
+        createdAt
+        updatedAt
+      }
+      connectedOrganizations {
+        id
+        name
+        email
+        organization
+        items {
+          id
+          name
+          description
+          img
+        }
+        createdAt
+        updatedAt
       }
       createdAt
       updatedAt
     }
   }
 `;
-export const listPosts = /* GraphQL */ `
-  query ListPosts(
-    $filter: ModelPostFilterInput
+export const listPortals = /* GraphQL */ `
+  query ListPortals(
+    $filter: ModelPortalFilterInput
     $limit: Int
     $nextToken: String
   ) {
-    listPosts(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listPortals(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        title
-        blogID
-        blog {
+        name
+        items {
           id
           name
-          createdAt
-          updatedAt
+          description
+          img
         }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
-  }
-`;
-export const getComment = /* GraphQL */ `
-  query GetComment($id: ID!) {
-    getComment(id: $id) {
-      id
-      postID
-      post {
-        id
-        title
-        blogID
-        blog {
+        connectedUsers {
           id
           name
+          email
+          organization
           createdAt
           updatedAt
         }
-        comments {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      content
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const listComments = /* GraphQL */ `
-  query ListComments(
-    $filter: ModelCommentFilterInput
-    $limit: Int
-    $nextToken: String
-  ) {
-    listComments(filter: $filter, limit: $limit, nextToken: $nextToken) {
-      items {
-        id
-        postID
-        post {
+        connectedOrganizations {
           id
-          title
-          blogID
+          name
+          email
+          organization
           createdAt
           updatedAt
         }
-        content
         createdAt
         updatedAt
       }

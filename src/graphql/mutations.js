@@ -1,259 +1,205 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createBlog = /* GraphQL */ `
-  mutation CreateBlog(
-    $input: CreateBlogInput!
-    $condition: ModelBlogConditionInput
+export const createUser = /* GraphQL */ `
+  mutation CreateUser(
+    $input: CreateUserInput!
+    $condition: ModelUserConditionInput
   ) {
-    createBlog(input: $input, condition: $condition) {
+    createUser(input: $input, condition: $condition) {
       id
       name
-      posts {
-        items {
-          id
-          title
-          blogID
-          createdAt
-          updatedAt
-        }
-        nextToken
+      email
+      organization
+      items {
+        id
+        name
+        description
+        img
       }
       createdAt
       updatedAt
     }
   }
 `;
-export const updateBlog = /* GraphQL */ `
-  mutation UpdateBlog(
-    $input: UpdateBlogInput!
-    $condition: ModelBlogConditionInput
+export const updateUser = /* GraphQL */ `
+  mutation UpdateUser(
+    $input: UpdateUserInput!
+    $condition: ModelUserConditionInput
   ) {
-    updateBlog(input: $input, condition: $condition) {
+    updateUser(input: $input, condition: $condition) {
       id
       name
-      posts {
-        items {
-          id
-          title
-          blogID
-          createdAt
-          updatedAt
-        }
-        nextToken
+      email
+      organization
+      items {
+        id
+        name
+        description
+        img
       }
       createdAt
       updatedAt
     }
   }
 `;
-export const deleteBlog = /* GraphQL */ `
-  mutation DeleteBlog(
-    $input: DeleteBlogInput!
-    $condition: ModelBlogConditionInput
+export const deleteUser = /* GraphQL */ `
+  mutation DeleteUser(
+    $input: DeleteUserInput!
+    $condition: ModelUserConditionInput
   ) {
-    deleteBlog(input: $input, condition: $condition) {
+    deleteUser(input: $input, condition: $condition) {
       id
       name
-      posts {
-        items {
-          id
-          title
-          blogID
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const createPost = /* GraphQL */ `
-  mutation CreatePost(
-    $input: CreatePostInput!
-    $condition: ModelPostConditionInput
-  ) {
-    createPost(input: $input, condition: $condition) {
-      id
-      title
-      blogID
-      blog {
+      email
+      organization
+      items {
         id
         name
-        posts {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      comments {
-        items {
-          id
-          postID
-          content
-          createdAt
-          updatedAt
-        }
-        nextToken
+        description
+        img
       }
       createdAt
       updatedAt
     }
   }
 `;
-export const updatePost = /* GraphQL */ `
-  mutation UpdatePost(
-    $input: UpdatePostInput!
-    $condition: ModelPostConditionInput
+export const createPortal = /* GraphQL */ `
+  mutation CreatePortal(
+    $input: CreatePortalInput!
+    $condition: ModelPortalConditionInput
   ) {
-    updatePost(input: $input, condition: $condition) {
+    createPortal(input: $input, condition: $condition) {
       id
-      title
-      blogID
-      blog {
+      name
+      items {
         id
         name
-        posts {
-          nextToken
-        }
-        createdAt
-        updatedAt
+        description
+        img
       }
-      comments {
-        items {
-          id
-          postID
-          content
-          createdAt
-          updatedAt
-        }
-        nextToken
-      }
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const deletePost = /* GraphQL */ `
-  mutation DeletePost(
-    $input: DeletePostInput!
-    $condition: ModelPostConditionInput
-  ) {
-    deletePost(input: $input, condition: $condition) {
-      id
-      title
-      blogID
-      blog {
+      connectedUsers {
         id
         name
-        posts {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
-      comments {
+        email
+        organization
         items {
           id
-          postID
-          content
-          createdAt
-          updatedAt
+          name
+          description
+          img
         }
-        nextToken
+        createdAt
+        updatedAt
+      }
+      connectedOrganizations {
+        id
+        name
+        email
+        organization
+        items {
+          id
+          name
+          description
+          img
+        }
+        createdAt
+        updatedAt
       }
       createdAt
       updatedAt
     }
   }
 `;
-export const createComment = /* GraphQL */ `
-  mutation CreateComment(
-    $input: CreateCommentInput!
-    $condition: ModelCommentConditionInput
+export const updatePortal = /* GraphQL */ `
+  mutation UpdatePortal(
+    $input: UpdatePortalInput!
+    $condition: ModelPortalConditionInput
   ) {
-    createComment(input: $input, condition: $condition) {
+    updatePortal(input: $input, condition: $condition) {
       id
-      postID
-      post {
+      name
+      items {
         id
-        title
-        blogID
-        blog {
+        name
+        description
+        img
+      }
+      connectedUsers {
+        id
+        name
+        email
+        organization
+        items {
           id
           name
-          createdAt
-          updatedAt
-        }
-        comments {
-          nextToken
+          description
+          img
         }
         createdAt
         updatedAt
       }
-      content
+      connectedOrganizations {
+        id
+        name
+        email
+        organization
+        items {
+          id
+          name
+          description
+          img
+        }
+        createdAt
+        updatedAt
+      }
       createdAt
       updatedAt
     }
   }
 `;
-export const updateComment = /* GraphQL */ `
-  mutation UpdateComment(
-    $input: UpdateCommentInput!
-    $condition: ModelCommentConditionInput
+export const deletePortal = /* GraphQL */ `
+  mutation DeletePortal(
+    $input: DeletePortalInput!
+    $condition: ModelPortalConditionInput
   ) {
-    updateComment(input: $input, condition: $condition) {
+    deletePortal(input: $input, condition: $condition) {
       id
-      postID
-      post {
+      name
+      items {
         id
-        title
-        blogID
-        blog {
+        name
+        description
+        img
+      }
+      connectedUsers {
+        id
+        name
+        email
+        organization
+        items {
           id
           name
-          createdAt
-          updatedAt
-        }
-        comments {
-          nextToken
+          description
+          img
         }
         createdAt
         updatedAt
       }
-      content
-      createdAt
-      updatedAt
-    }
-  }
-`;
-export const deleteComment = /* GraphQL */ `
-  mutation DeleteComment(
-    $input: DeleteCommentInput!
-    $condition: ModelCommentConditionInput
-  ) {
-    deleteComment(input: $input, condition: $condition) {
-      id
-      postID
-      post {
+      connectedOrganizations {
         id
-        title
-        blogID
-        blog {
+        name
+        email
+        organization
+        items {
           id
           name
-          createdAt
-          updatedAt
-        }
-        comments {
-          nextToken
+          description
+          img
         }
         createdAt
         updatedAt
       }
-      content
       createdAt
       updatedAt
     }
