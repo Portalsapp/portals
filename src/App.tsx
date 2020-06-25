@@ -7,6 +7,7 @@ import ProfileScreen from './pages/profile/ProfileScreen';
 import MainScreen from './pages/main/MainScreen';
 import DocsScreen from './pages/docs/DocsScreen';
 import DatabaseScreen from './pages/database/DatabaseScreen';
+import LoginScreen from './pages/login/LoginScreen';
 import Header from './components/navbar/Header';
 import { withAuthenticator } from '@aws-amplify/ui-react';
 import configureStore from './modules/store/configureStore';
@@ -19,6 +20,9 @@ function App() {
         <div>
           <Header />
           <Switch>
+            <Route path='/login'>
+              <LoginScreen />
+            </Route>
             <Route path='/profile'>
               <ProfileScreen />
             </Route>

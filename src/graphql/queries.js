@@ -14,6 +14,7 @@ export const getUser = /* GraphQL */ `
         description
         img
       }
+      location
       createdAt
       updatedAt
     }
@@ -37,6 +38,7 @@ export const listUsers = /* GraphQL */ `
           description
           img
         }
+        location
         createdAt
         updatedAt
       }
@@ -66,6 +68,7 @@ export const getPortal = /* GraphQL */ `
           description
           img
         }
+        location
         createdAt
         updatedAt
       }
@@ -80,6 +83,7 @@ export const getPortal = /* GraphQL */ `
           description
           img
         }
+        location
         createdAt
         updatedAt
       }
@@ -109,6 +113,7 @@ export const listPortals = /* GraphQL */ `
           name
           email
           organization
+          location
           createdAt
           updatedAt
         }
@@ -117,6 +122,7 @@ export const listPortals = /* GraphQL */ `
           name
           email
           organization
+          location
           createdAt
           updatedAt
         }

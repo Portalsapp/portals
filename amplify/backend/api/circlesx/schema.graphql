@@ -1,22 +1,23 @@
 type User @model {
   id: String!,
   name: String!,
-  email: String!,
+  email: String,
   organization: Boolean!,
   items: [Item!]!,
+  location: String,
 }
 
 type Portal @model {
   id: String!,
   name: String!,
-  items: [Item!]!,
-  connectedUsers: [User!]!,
-  connectedOrganizations: [User!]!,
+  items: [Item!],
+  connectedUsers: [User!],
+  connectedOrganizations: [User!],
 }
 
 type Item {
   id: String!,
   name: String!, 
-  description: String!,
-  img: String!,
+  description: String,
+  img: String,
 }

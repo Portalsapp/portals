@@ -14,6 +14,7 @@ export const onCreateUser = /* GraphQL */ `
         description
         img
       }
+      location
       createdAt
       updatedAt
     }
@@ -32,6 +33,7 @@ export const onUpdateUser = /* GraphQL */ `
         description
         img
       }
+      location
       createdAt
       updatedAt
     }
@@ -50,6 +52,7 @@ export const onDeleteUser = /* GraphQL */ `
         description
         img
       }
+      location
       createdAt
       updatedAt
     }
@@ -77,6 +80,7 @@ export const onCreatePortal = /* GraphQL */ `
           description
           img
         }
+        location
         createdAt
         updatedAt
       }
@@ -91,6 +95,7 @@ export const onCreatePortal = /* GraphQL */ `
           description
           img
         }
+        location
         createdAt
         updatedAt
       }
@@ -121,6 +126,7 @@ export const onUpdatePortal = /* GraphQL */ `
           description
           img
         }
+        location
         createdAt
         updatedAt
       }
@@ -135,6 +141,7 @@ export const onUpdatePortal = /* GraphQL */ `
           description
           img
         }
+        location
         createdAt
         updatedAt
       }
@@ -165,6 +172,7 @@ export const onDeletePortal = /* GraphQL */ `
           description
           img
         }
+        location
         createdAt
         updatedAt
       }
@@ -179,6 +187,7 @@ export const onDeletePortal = /* GraphQL */ `
           description
           img
         }
+        location
         createdAt
         updatedAt
       }
