@@ -1,23 +1,77 @@
 type User @model {
-  id: String!,
-  name: String!,
-  email: String,
-  organization: Boolean!,
-  items: [Item!]!,
-  location: String,
+  id: String!
+  name: String!
+  email: String!
+  token: String!
+  accountBalance: Float!,
+  isOrganization: Boolean!,
+  username: String,
+
+
+  phoneNumber: String,
+  age: Int,
+  address: String,
+  inventory: [Item!],
+  joinedPortals: [String!],
+  friends: [String!],
+  profilePic: String,
+  orderHistory: [String!],
+  ownedPortals: [String!],
+  financialInfo: String,
 }
 
 type Portal @model {
-  id: String!,
   name: String!,
-  items: [Item!],
-  connectedUsers: [User!],
-  connectedOrganizations: [User!],
+  token: String!,
+  username: String!,
+
+  publisherName: String,
+  description: String,
+  platforms: [String!],
+  connections: [String!],
+  public: Boolean,
+  physicalConnections: [String!],
+  portalConnections: [String!],
+  children: [String!],
+  socialMediaConnections: [String!],
+  itemSchemas: [Item!],
+  connectionRewards: [Item!],
+  profilePic: String,
+  mediaImages: [String!],
+  bankAccount: String,
+}
+
+type Entity @model {
+  name: String!,
+  token: String!,
+  username: String!,
+
+  location: String,
+  publisherName: String,
+  description: String,
+  platforms: [String!],
+  connections: [String!],
+  public: Boolean,
+  physicalConnections: [String!],
+  portalConnections: [String!],
+  children: [String!],
+  socialMediaConnections: [String!],
+  itemSchemas: [Item!],
+  connectionRewards: [Item!],
+  profilePic: String,
+  mediaImages: [String!],
+  bankAccount: String,
+  autoAcceptConnections: Boolean,
+  hashtags: [String!],
+  merchants: [String!],
+  merchantAPIKeys: [String!],
 }
 
 type Item {
-  id: String!,
   name: String!, 
+  token: String!,
+  isVirtual: Boolean!,
   description: String,
-  img: String,
+  pic: String,
+  compatability: [String!],
 }

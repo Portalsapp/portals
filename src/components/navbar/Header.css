@@ -1,0 +1,8 @@
+.businessButton {
+  text-decoration: underline;
+}
+
+.signInButton {
+  color: blue;
+  text-decoration: none; /* no underline */
+}

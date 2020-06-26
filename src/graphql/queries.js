@@ -7,14 +7,27 @@ export const getUser = /* GraphQL */ `
       id
       name
       email
-      organization
-      items {
-        id
+      token
+      accountBalance
+      isOrganization
+      username
+      phoneNumber
+      age
+      address
+      inventory {
         name
+        token
+        isVirtual
         description
-        img
+        pic
+        compatability
       }
-      location
+      joinedPortals
+      friends
+      profilePic
+      orderHistory
+      ownedPortals
+      financialInfo
       createdAt
       updatedAt
     }
@@ -31,14 +44,27 @@ export const listUsers = /* GraphQL */ `
         id
         name
         email
-        organization
-        items {
-          id
+        token
+        accountBalance
+        isOrganization
+        username
+        phoneNumber
+        age
+        address
+        inventory {
           name
+          token
+          isVirtual
           description
-          img
+          pic
+          compatability
         }
-        location
+        joinedPortals
+        friends
+        profilePic
+        orderHistory
+        ownedPortals
+        financialInfo
         createdAt
         updatedAt
       }
@@ -49,44 +75,37 @@ export const listUsers = /* GraphQL */ `
 export const getPortal = /* GraphQL */ `
   query GetPortal($id: ID!) {
     getPortal(id: $id) {
-      id
       name
-      items {
-        id
+      token
+      username
+      publisherName
+      description
+      platforms
+      connections
+      public
+      physicalConnections
+      portalConnections
+      children
+      socialMediaConnections
+      itemSchemas {
         name
+        token
+        isVirtual
         description
-        img
+        pic
+        compatability
       }
-      connectedUsers {
-        id
+      connectionRewards {
         name
-        email
-        organization
-        items {
-          id
-          name
-          description
-          img
-        }
-        location
-        createdAt
-        updatedAt
+        token
+        isVirtual
+        description
+        pic
+        compatability
       }
-      connectedOrganizations {
-        id
-        name
-        email
-        organization
-        items {
-          id
-          name
-          description
-          img
-        }
-        location
-        createdAt
-        updatedAt
-      }
+      profilePic
+      mediaImages
+      bankAccount
       createdAt
       updatedAt
     }
@@ -100,32 +119,132 @@ export const listPortals = /* GraphQL */ `
   ) {
     listPortals(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
-        id
         name
-        items {
-          id
+        token
+        username
+        publisherName
+        description
+        platforms
+        connections
+        public
+        physicalConnections
+        portalConnections
+        children
+        socialMediaConnections
+        itemSchemas {
           name
+          token
+          isVirtual
           description
-          img
+          pic
+          compatability
         }
-        connectedUsers {
-          id
+        connectionRewards {
           name
-          email
-          organization
-          location
-          createdAt
-          updatedAt
+          token
+          isVirtual
+          description
+          pic
+          compatability
         }
-        connectedOrganizations {
-          id
+        profilePic
+        mediaImages
+        bankAccount
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getEntity = /* GraphQL */ `
+  query GetEntity($id: ID!) {
+    getEntity(id: $id) {
+      name
+      token
+      username
+      location
+      publisherName
+      description
+      platforms
+      connections
+      public
+      physicalConnections
+      portalConnections
+      children
+      socialMediaConnections
+      itemSchemas {
+        name
+        token
+        isVirtual
+        description
+        pic
+        compatability
+      }
+      connectionRewards {
+        name
+        token
+        isVirtual
+        description
+        pic
+        compatability
+      }
+      profilePic
+      mediaImages
+      bankAccount
+      autoAcceptConnections
+      hashtags
+      merchants
+      merchantAPIKeys
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listEntitys = /* GraphQL */ `
+  query ListEntitys(
+    $filter: ModelEntityFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listEntitys(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        name
+        token
+        username
+        location
+        publisherName
+        description
+        platforms
+        connections
+        public
+        physicalConnections
+        portalConnections
+        children
+        socialMediaConnections
+        itemSchemas {
           name
-          email
-          organization
-          location
-          createdAt
-          updatedAt
+          token
+          isVirtual
+          description
+          pic
+          compatability
         }
+        connectionRewards {
+          name
+          token
+          isVirtual
+          description
+          pic
+          compatability
+        }
+        profilePic
+        mediaImages
+        bankAccount
+        autoAcceptConnections
+        hashtags
+        merchants
+        merchantAPIKeys
         createdAt
         updatedAt
       }

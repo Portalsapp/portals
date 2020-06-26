@@ -14,6 +14,13 @@
         "categories": {
             "auth": {
                 "circlesx24846b49": {}
+            },
+            "function": {
+                "circlesx24846b49CreateAuthChallenge": {
+                    "CHALLENGEANSWER": "answer"
+                },
+                "circlesx24846b49DefineAuthChallenge": {},
+                "circlesx24846b49VerifyAuthChallengeResponse": {}
             }
         }
     }

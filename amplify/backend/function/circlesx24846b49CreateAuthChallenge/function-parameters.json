@@ -1,0 +1,16 @@
+{
+    "trigger": true,
+    "modules": [
+        "boilerplate-create-challenge"
+    ],
+    "parentResource": "circlesx24846b49",
+    "functionName": "circlesx24846b49CreateAuthChallenge",
+    "resourceName": "circlesx24846b49CreateAuthChallenge",
+    "parentStack": "auth",
+    "triggerEnvs": [],
+    "triggerDir": "/usr/local/lib/node_modules/@aws-amplify/cli/node_modules/amplify-category-auth/provider-utils/awscloudformation/utils/../triggers/CreateAuthChallenge",
+    "triggerTemplate": "CreateAuthChallenge.json.ejs",
+    "roleName": "circlesx24846b49CreateAuthChallenge",
+    "skipEdit": true,
+    "CHALLENGEANSWER": "answer"
+}

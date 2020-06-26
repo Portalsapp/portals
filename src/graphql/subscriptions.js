@@ -7,14 +7,27 @@ export const onCreateUser = /* GraphQL */ `
       id
       name
       email
-      organization
-      items {
-        id
+      token
+      accountBalance
+      isOrganization
+      username
+      phoneNumber
+      age
+      address
+      inventory {
         name
+        token
+        isVirtual
         description
-        img
+        pic
+        compatability
       }
-      location
+      joinedPortals
+      friends
+      profilePic
+      orderHistory
+      ownedPortals
+      financialInfo
       createdAt
       updatedAt
     }
@@ -26,14 +39,27 @@ export const onUpdateUser = /* GraphQL */ `
       id
       name
       email
-      organization
-      items {
-        id
+      token
+      accountBalance
+      isOrganization
+      username
+      phoneNumber
+      age
+      address
+      inventory {
         name
+        token
+        isVirtual
         description
-        img
+        pic
+        compatability
       }
-      location
+      joinedPortals
+      friends
+      profilePic
+      orderHistory
+      ownedPortals
+      financialInfo
       createdAt
       updatedAt
     }
@@ -45,14 +71,27 @@ export const onDeleteUser = /* GraphQL */ `
       id
       name
       email
-      organization
-      items {
-        id
+      token
+      accountBalance
+      isOrganization
+      username
+      phoneNumber
+      age
+      address
+      inventory {
         name
+        token
+        isVirtual
         description
-        img
+        pic
+        compatability
       }
-      location
+      joinedPortals
+      friends
+      profilePic
+      orderHistory
+      ownedPortals
+      financialInfo
       createdAt
       updatedAt
     }
@@ -61,44 +100,37 @@ export const onDeleteUser = /* GraphQL */ `
 export const onCreatePortal = /* GraphQL */ `
   subscription OnCreatePortal {
     onCreatePortal {
-      id
       name
-      items {
-        id
+      token
+      username
+      publisherName
+      description
+      platforms
+      connections
+      public
+      physicalConnections
+      portalConnections
+      children
+      socialMediaConnections
+      itemSchemas {
         name
+        token
+        isVirtual
         description
-        img
+        pic
+        compatability
       }
-      connectedUsers {
-        id
+      connectionRewards {
         name
-        email
-        organization
-        items {
-          id
-          name
-          description
-          img
-        }
-        location
-        createdAt
-        updatedAt
+        token
+        isVirtual
+        description
+        pic
+        compatability
       }
-      connectedOrganizations {
-        id
-        name
-        email
-        organization
-        items {
-          id
-          name
-          description
-          img
-        }
-        location
-        createdAt
-        updatedAt
-      }
+      profilePic
+      mediaImages
+      bankAccount
       createdAt
       updatedAt
     }
@@ -107,44 +139,37 @@ export const onCreatePortal = /* GraphQL */ `
 export const onUpdatePortal = /* GraphQL */ `
   subscription OnUpdatePortal {
     onUpdatePortal {
-      id
       name
-      items {
-        id
+      token
+      username
+      publisherName
+      description
+      platforms
+      connections
+      public
+      physicalConnections
+      portalConnections
+      children
+      socialMediaConnections
+      itemSchemas {
         name
+        token
+        isVirtual
         description
-        img
+        pic
+        compatability
       }
-      connectedUsers {
-        id
+      connectionRewards {
         name
-        email
-        organization
-        items {
-          id
-          name
-          description
-          img
-        }
-        location
-        createdAt
-        updatedAt
+        token
+        isVirtual
+        description
+        pic
+        compatability
       }
-      connectedOrganizations {
-        id
-        name
-        email
-        organization
-        items {
-          id
-          name
-          description
-          img
-        }
-        location
-        createdAt
-        updatedAt
-      }
+      profilePic
+      mediaImages
+      bankAccount
       createdAt
       updatedAt
     }
@@ -153,44 +178,169 @@ export const onUpdatePortal = /* GraphQL */ `
 export const onDeletePortal = /* GraphQL */ `
   subscription OnDeletePortal {
     onDeletePortal {
-      id
       name
-      items {
-        id
+      token
+      username
+      publisherName
+      description
+      platforms
+      connections
+      public
+      physicalConnections
+      portalConnections
+      children
+      socialMediaConnections
+      itemSchemas {
         name
+        token
+        isVirtual
         description
-        img
+        pic
+        compatability
       }
-      connectedUsers {
-        id
+      connectionRewards {
         name
-        email
-        organization
-        items {
-          id
-          name
-          description
-          img
-        }
-        location
-        createdAt
-        updatedAt
+        token
+        isVirtual
+        description
+        pic
+        compatability
       }
-      connectedOrganizations {
-        id
+      profilePic
+      mediaImages
+      bankAccount
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onCreateEntity = /* GraphQL */ `
+  subscription OnCreateEntity {
+    onCreateEntity {
+      name
+      token
+      username
+      location
+      publisherName
+      description
+      platforms
+      connections
+      public
+      physicalConnections
+      portalConnections
+      children
+      socialMediaConnections
+      itemSchemas {
         name
-        email
-        organization
-        items {
-          id
-          name
-          description
-          img
-        }
-        location
-        createdAt
-        updatedAt
+        token
+        isVirtual
+        description
+        pic
+        compatability
       }
+      connectionRewards {
+        name
+        token
+        isVirtual
+        description
+        pic
+        compatability
+      }
+      profilePic
+      mediaImages
+      bankAccount
+      autoAcceptConnections
+      hashtags
+      merchants
+      merchantAPIKeys
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateEntity = /* GraphQL */ `
+  subscription OnUpdateEntity {
+    onUpdateEntity {
+      name
+      token
+      username
+      location
+      publisherName
+      description
+      platforms
+      connections
+      public
+      physicalConnections
+      portalConnections
+      children
+      socialMediaConnections
+      itemSchemas {
+        name
+        token
+        isVirtual
+        description
+        pic
+        compatability
+      }
+      connectionRewards {
+        name
+        token
+        isVirtual
+        description
+        pic
+        compatability
+      }
+      profilePic
+      mediaImages
+      bankAccount
+      autoAcceptConnections
+      hashtags
+      merchants
+      merchantAPIKeys
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteEntity = /* GraphQL */ `
+  subscription OnDeleteEntity {
+    onDeleteEntity {
+      name
+      token
+      username
+      location
+      publisherName
+      description
+      platforms
+      connections
+      public
+      physicalConnections
+      portalConnections
+      children
+      socialMediaConnections
+      itemSchemas {
+        name
+        token
+        isVirtual
+        description
+        pic
+        compatability
+      }
+      connectionRewards {
+        name
+        token
+        isVirtual
+        description
+        pic
+        compatability
+      }
+      profilePic
+      mediaImages
+      bankAccount
+      autoAcceptConnections
+      hashtags
+      merchants
+      merchantAPIKeys
       createdAt
       updatedAt
     }

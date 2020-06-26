@@ -10,14 +10,27 @@ export const createUser = /* GraphQL */ `
       id
       name
       email
-      organization
-      items {
-        id
+      token
+      accountBalance
+      isOrganization
+      username
+      phoneNumber
+      age
+      address
+      inventory {
         name
+        token
+        isVirtual
         description
-        img
+        pic
+        compatability
       }
-      location
+      joinedPortals
+      friends
+      profilePic
+      orderHistory
+      ownedPortals
+      financialInfo
       createdAt
       updatedAt
     }
@@ -32,14 +45,27 @@ export const updateUser = /* GraphQL */ `
       id
       name
       email
-      organization
-      items {
-        id
+      token
+      accountBalance
+      isOrganization
+      username
+      phoneNumber
+      age
+      address
+      inventory {
         name
+        token
+        isVirtual
         description
-        img
+        pic
+        compatability
       }
-      location
+      joinedPortals
+      friends
+      profilePic
+      orderHistory
+      ownedPortals
+      financialInfo
       createdAt
       updatedAt
     }
@@ -54,14 +80,27 @@ export const deleteUser = /* GraphQL */ `
       id
       name
       email
-      organization
-      items {
-        id
+      token
+      accountBalance
+      isOrganization
+      username
+      phoneNumber
+      age
+      address
+      inventory {
         name
+        token
+        isVirtual
         description
-        img
+        pic
+        compatability
       }
-      location
+      joinedPortals
+      friends
+      profilePic
+      orderHistory
+      ownedPortals
+      financialInfo
       createdAt
       updatedAt
     }
@@ -73,44 +112,37 @@ export const createPortal = /* GraphQL */ `
     $condition: ModelPortalConditionInput
   ) {
     createPortal(input: $input, condition: $condition) {
-      id
       name
-      items {
-        id
+      token
+      username
+      publisherName
+      description
+      platforms
+      connections
+      public
+      physicalConnections
+      portalConnections
+      children
+      socialMediaConnections
+      itemSchemas {
         name
+        token
+        isVirtual
         description
-        img
+        pic
+        compatability
       }
-      connectedUsers {
-        id
+      connectionRewards {
         name
-        email
-        organization
-        items {
-          id
-          name
-          description
-          img
-        }
-        location
-        createdAt
-        updatedAt
+        token
+        isVirtual
+        description
+        pic
+        compatability
       }
-      connectedOrganizations {
-        id
-        name
-        email
-        organization
-        items {
-          id
-          name
-          description
-          img
-        }
-        location
-        createdAt
-        updatedAt
-      }
+      profilePic
+      mediaImages
+      bankAccount
       createdAt
       updatedAt
     }
@@ -122,44 +154,37 @@ export const updatePortal = /* GraphQL */ `
     $condition: ModelPortalConditionInput
   ) {
     updatePortal(input: $input, condition: $condition) {
-      id
       name
-      items {
-        id
+      token
+      username
+      publisherName
+      description
+      platforms
+      connections
+      public
+      physicalConnections
+      portalConnections
+      children
+      socialMediaConnections
+      itemSchemas {
         name
+        token
+        isVirtual
         description
-        img
+        pic
+        compatability
       }
-      connectedUsers {
-        id
+      connectionRewards {
         name
-        email
-        organization
-        items {
-          id
-          name
-          description
-          img
-        }
-        location
-        createdAt
-        updatedAt
+        token
+        isVirtual
+        description
+        pic
+        compatability
       }
-      connectedOrganizations {
-        id
-        name
-        email
-        organization
-        items {
-          id
-          name
-          description
-          img
-        }
-        location
-        createdAt
-        updatedAt
-      }
+      profilePic
+      mediaImages
+      bankAccount
       createdAt
       updatedAt
     }
@@ -171,44 +196,178 @@ export const deletePortal = /* GraphQL */ `
     $condition: ModelPortalConditionInput
   ) {
     deletePortal(input: $input, condition: $condition) {
-      id
       name
-      items {
-        id
+      token
+      username
+      publisherName
+      description
+      platforms
+      connections
+      public
+      physicalConnections
+      portalConnections
+      children
+      socialMediaConnections
+      itemSchemas {
         name
+        token
+        isVirtual
         description
-        img
+        pic
+        compatability
       }
-      connectedUsers {
-        id
+      connectionRewards {
         name
-        email
-        organization
-        items {
-          id
-          name
-          description
-          img
-        }
-        location
-        createdAt
-        updatedAt
+        token
+        isVirtual
+        description
+        pic
+        compatability
       }
-      connectedOrganizations {
-        id
+      profilePic
+      mediaImages
+      bankAccount
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const createEntity = /* GraphQL */ `
+  mutation CreateEntity(
+    $input: CreateEntityInput!
+    $condition: ModelEntityConditionInput
+  ) {
+    createEntity(input: $input, condition: $condition) {
+      name
+      token
+      username
+      location
+      publisherName
+      description
+      platforms
+      connections
+      public
+      physicalConnections
+      portalConnections
+      children
+      socialMediaConnections
+      itemSchemas {
         name
-        email
-        organization
-        items {
-          id
-          name
-          description
-          img
-        }
-        location
-        createdAt
-        updatedAt
+        token
+        isVirtual
+        description
+        pic
+        compatability
       }
+      connectionRewards {
+        name
+        token
+        isVirtual
+        description
+        pic
+        compatability
+      }
+      profilePic
+      mediaImages
+      bankAccount
+      autoAcceptConnections
+      hashtags
+      merchants
+      merchantAPIKeys
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateEntity = /* GraphQL */ `
+  mutation UpdateEntity(
+    $input: UpdateEntityInput!
+    $condition: ModelEntityConditionInput
+  ) {
+    updateEntity(input: $input, condition: $condition) {
+      name
+      token
+      username
+      location
+      publisherName
+      description
+      platforms
+      connections
+      public
+      physicalConnections
+      portalConnections
+      children
+      socialMediaConnections
+      itemSchemas {
+        name
+        token
+        isVirtual
+        description
+        pic
+        compatability
+      }
+      connectionRewards {
+        name
+        token
+        isVirtual
+        description
+        pic
+        compatability
+      }
+      profilePic
+      mediaImages
+      bankAccount
+      autoAcceptConnections
+      hashtags
+      merchants
+      merchantAPIKeys
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteEntity = /* GraphQL */ `
+  mutation DeleteEntity(
+    $input: DeleteEntityInput!
+    $condition: ModelEntityConditionInput
+  ) {
+    deleteEntity(input: $input, condition: $condition) {
+      name
+      token
+      username
+      location
+      publisherName
+      description
+      platforms
+      connections
+      public
+      physicalConnections
+      portalConnections
+      children
+      socialMediaConnections
+      itemSchemas {
+        name
+        token
+        isVirtual
+        description
+        pic
+        compatability
+      }
+      connectionRewards {
+        name
+        token
+        isVirtual
+        description
+        pic
+        compatability
+      }
+      profilePic
+      mediaImages
+      bankAccount
+      autoAcceptConnections
+      hashtags
+      merchants
+      merchantAPIKeys
       createdAt
       updatedAt
     }
