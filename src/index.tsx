@@ -4,12 +4,14 @@ import Amplify from 'aws-amplify';
 import awsExports from './aws-exports';
 import './index.css';
 import App from './App';
+import Home from './pages/temporary/Home';
 import * as serviceWorker from './serviceWorker';
 Amplify.configure(awsExports);
 
 ReactDOM.render(
   <React.StrictMode>
-    <App/>
+    {/* <App/> */}
+    <Home />
   </React.StrictMode>,
   document.getElementById('root')
 );

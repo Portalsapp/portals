@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+html, body, #app, #root, #app>div {
+  height: 100%
+}
+
+.grad-background {
+  background: '#f4f4f4';
+/* background: rgb(31,40,98);
+background: linear-gradient(45deg, rgba(31,40,98,0.8239670868347339) 0%, rgba(153,171,255,1) 100%); */
+}

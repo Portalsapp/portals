@@ -1,10 +1,15 @@
 import React from 'react';
-import Form from 'react-bootstrap/Form';
-import { Row, Col, Button, Container } from 'react-bootstrap';
+import { Container, Row, Col, Form } from 'react-bootstrap';
+import { useForm, Controller } from 'react-hook-form';
 import { Auth } from 'aws-amplify';
 import Amplify from 'aws-amplify';
 import { CognitoUser } from 'amazon-cognito-identity-js';
 import { answerCustomChallenge } from '../../functions/Auth';
+
+type Inputs = {
+  example: string,
+  exampleRequired: string,
+};
 
 Amplify.configure({
   Auth: {
@@ -19,11 +24,11 @@ export async function signIn(email: string) {
   cognitoUser = await Auth.signIn(email);
 }
 
-const submitVerificationCode = () => {
-
-}
 
 export default function SignInScreen() {
+  const { register, handleSubmit, watch, errors, control } = useForm<Inputs>();
+  const onSubmit = (data: Inputs) => console.log(data);
+
   return (
     <Container style={{ height: '100%' }}>
       <Row
@@ -32,37 +37,39 @@ export default function SignInScreen() {
       >
         <Col xs={6} className='align-items-center'>
           <div className='formContainer'>
-            <Form>
-              <h3>Portals Sign In</h3>
+            <form onSubmit={handleSubmit(onSubmit)}>
               <Form.Group>
-                <Form.Control placeholder='Email or Phone Number' />
+                <Controller
+                  as={<Form.Control type='text' placeholder='Username' />}
+                  name='username'
+                  control={control}
+                  defaultValue=''
+                />
               </Form.Group>
               <Form.Group>
-                <Form.Control type='password' placeholder='Password' />
+                <Controller
+                  as={<Form.Control type='email' placeholder='Email' />}
+                  name='email'
+                  control={control}
+                  defaultValue=''
+                  rules={{ required: true }}
+                />
               </Form.Group>
-              <Button variant='outline-primary' type='submit'>
-                Submit
-              </Button>
-            </Form>
+
+              {/* include validation with required or other standard HTML validation rules */}
+              <input
+                name='exampleRequired'
+                ref={register({ required: true })}
+              />
+              {/* errors will return when field validation fails  */}
+              {errors.exampleRequired && <span>This field is required</span>}
+
+              <input type='submit' />
+            </form>
           </div>
         </Col>
         <Col xs={6} className='align-items-center'>
-          <div className='formContainer'>
-            <Form>
-              <h3>Verification Code</h3>
-              <Form.Label>Verification Code</Form.Label>
-              <Form.Group>
-                <Form.Control placeholder='4 Digit Code' />
-              </Form.Group>
-              <Button
-                variant='outline-primary'
-                type='submit'
-                onClick={() => submitVerificationCode()}
-              >
-                Submit
-              </Button>
-            </Form>
-          </div>
+          <div className='formContainer'></div>
         </Col>
       </Row>
     </Container>
